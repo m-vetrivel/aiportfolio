@@ -1,0 +1,81 @@
+############################
+# General
+############################
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+.env
+.env.*
+!.env.example
+
+############################
+# Editor / IDE
+############################
+.vscode/
+.idea/
+*.iml
+
+############################
+# Node / React (Frontend)
+############################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+build/
+dist/
+
+# React / Vite / Next
+.cache/
+.next/
+out/
+
+############################
+# Python / Flask (Backend)
+############################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Flask
+instance/
+.webassets-cache
+
+# Python packaging
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+.pytest_cache/
+.coverage
+htmlcov/
+
+############################
+# Database
+############################
+*.sqlite
+*.sqlite3
+
+############################
+# Celery / Redis (if used)
+############################
+celerybeat-schedule
+dump.rdb
+
+############################
+# OS-specific
+############################
+.DS_Store
+Thumbs.db
