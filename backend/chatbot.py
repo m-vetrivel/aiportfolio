@@ -5,6 +5,11 @@ import models, database, auth, market_data, trading
 
 from huggingface_hub import InferenceClient
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+HF_TOKEN = os.getenv("HF_TOKEN")
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 
