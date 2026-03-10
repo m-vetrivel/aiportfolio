@@ -7,9 +7,11 @@ interface TradeModalProps {
     isOpen: boolean;
     onClose: () => void;
     initialSymbol?: string;
+    aiAnalysis?: string | null;
+    isAnalyzing?: boolean;
 }
 
-export default function TradeModal({ isOpen, onClose, initialSymbol = '' }: TradeModalProps) {
+export default function TradeModal({ isOpen, onClose, initialSymbol = '', aiAnalysis, isAnalyzing }: TradeModalProps) {
     const [symbol, setSymbol] = useState(initialSymbol);
     const [quantity, setQuantity] = useState(1);
     const [action, setAction] = useState<'BUY' | 'SELL'>('BUY');
@@ -71,6 +73,24 @@ export default function TradeModal({ isOpen, onClose, initialSymbol = '' }: Trad
 
                 {/* Body */}
                 <div className="p-6">
+                    {(isAnalyzing || aiAnalysis) && action === 'BUY' && (
+                        <div className="mb-6 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800 rounded-xl p-4">
+                            <h4 className="flex items-center text-indigo-800 dark:text-indigo-300 font-semibold mb-2 text-sm">
+                                🤖 AI Trading Assistant
+                            </h4>
+                            {isAnalyzing ? (
+                                <div className="flex items-center text-sm text-indigo-600 dark:text-indigo-400">
+                                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-indigo-600 dark:border-indigo-400 mr-2"></div>
+                                    Analyzing your portfolio for this trade...
+                                </div>
+                            ) : (
+                                <p className="text-sm text-indigo-700 dark:text-indigo-200 leading-relaxed">
+                                    {aiAnalysis}
+                                </p>
+                            )}
+                        </div>
+                    )}
+
                     <form onSubmit={handleTrade} className="space-y-4">
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Symbol</label>
