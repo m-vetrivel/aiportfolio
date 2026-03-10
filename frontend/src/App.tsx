@@ -10,6 +10,7 @@ import Portfolio from './pages/Portfolio';
 
 import Chat from './pages/Chat';
 import Market from './pages/Market';
+import StockDetail from './pages/StockDetail';
 
 
 function ProtectedLayout() {
@@ -43,6 +44,7 @@ function App() {
                             <Route path="/portfolio" element={<Portfolio />} />
 
                             <Route path="/market" element={<Market />} />
+                            <Route path="/market/:symbol" element={<StockDetail />} />
                             <Route path="/chat" element={<Chat />} />
                         </Route>
                     </Routes>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../lib/api';
 import { formatCurrency } from '../lib/utils';
-import { ArrowUpRight, ArrowDownRight, DollarSign, Wallet, Activity, MessageSquare } from 'lucide-react';
+import { ArrowUpRight, ArrowDownRight, DollarSign, Wallet, Activity, MessageSquare, PieChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
@@ -30,8 +30,8 @@ export default function Dashboard() {
                 <h1 className="text-3xl font-bold">Dashboard</h1>
                 {marketStatus && (
                     <div className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${marketStatus.status === 'OPEN'
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
-                            : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
+                        ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
+                        : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
                         }`}>
                         <Activity size={16} />
                         Market: {marketStatus.status}
@@ -120,9 +120,9 @@ export default function Dashboard() {
                                 <Activity className="mb-2 text-indigo-600 dark:text-indigo-400" />
                                 <span className="text-sm font-medium">Market</span>
                             </Link>
-                            <Link to="/trade" className="flex flex-col items-center p-4 bg-gray-50 dark:bg-slate-700 rounded-lg hover:bg-green-50 dark:hover:bg-slate-600 transition">
-                                <DollarSign className="mb-2 text-green-600 dark:text-green-400" />
-                                <span className="text-sm font-medium">Trade</span>
+                            <Link to="/portfolio" className="flex flex-col items-center p-4 bg-gray-50 dark:bg-slate-700 rounded-lg hover:bg-green-50 dark:hover:bg-slate-600 transition">
+                                <PieChart className="mb-2 text-green-600 dark:text-green-400" />
+                                <span className="text-sm font-medium">Portfolio</span>
                             </Link>
                         </div>
                     </div>
